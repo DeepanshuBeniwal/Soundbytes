@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAlbum">
+
+    <RelativeLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/loading_indicator"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/colorful_circle"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/network_error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/no_internet_connection"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Network Error"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_below="@id/error_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <com.jgabrielfreitas.core.BlurImageView
+            android:id="@+id/BlurImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"/>
+
+        <Button
+            android:id="@+id/backToPreviousScreen"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_back_to_previous"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/albumArt"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/albumName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/albumArt"
+            android:text="Album Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="55dp"/>
+
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_toRightOf="@id/albumArt"
+            android:layout_below="@id/albumName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist Name"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/albumReleaseYear"
+            android:layout_toRightOf="@id/albumArt"
+            android:layout_below="@id/artistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="2015"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"/>
+
+        <Button
+            android:id="@+id/backToPlayer"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_chevron_right_black_24dp"
+            android:layout_toRightOf="@id/albumReleaseYear"
+            android:layout_below="@id/artistName"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/noOfSongs"
+            android:layout_toRightOf="@id/albumArt"
+            android:layout_below="@id/albumReleaseYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/textSongs"
+            android:layout_toRightOf="@id/noOfSongs"
+            android:layout_below="@id/albumReleaseYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Songs"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_toRightOf="@id/textSongs"
+            android:layout_below="@id/albumReleaseYear"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_dot"/>
+
+        <TextView
+            android:id="@+id/albumPlayTime"
+            android:layout_toRightOf="@id/separator"
+            android:layout_below="@id/albumReleaseYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22 Min 34 Sec"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"/>
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/songsListView"
+        android:layout_below="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:choiceMode="singleChoice"
+        android:layout_marginRight="5dp"
+        android:listSelector="@android:color/darker_gray"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/playerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.jgabrielfreitas.core.BlurImageView
+            android:id="@+id/playerBlurImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/playerAlbumArt"
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"/>
+
+
+        <com.example.jean.jcplayer.view.JcPlayerView
+            android:id="@+id/jcplayer"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@id/playerAlbumArt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:id="@+id/backFromPlayer"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_back_arrow" />
+
+        <Button
+            android:id="@+id/genius"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/jcplayer"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/genius"/>
+
+
+
+        <TextView
+            android:id="@+id/genius_text"
+            android:layout_below="@id/genius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Official Lyrics Now Available On Genius"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
